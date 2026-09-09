@@ -53,6 +53,18 @@ const KIMI_PROVIDER_IDS: readonly string[] = [
 const CHEAPERINFERENCE_PROVIDER_IDS: readonly string[] = ["cheaperinference"];
 
 /**
+ * aimlapi.com (api.aimlapi.com) — apikey category, single id.
+ *
+ * FORK-ONLY. This pin is not part of the upstream provider set and must not be
+ * carried into an upstream pull request; it is isolated in its own commit so it
+ * can be dropped wholesale. It is deliberately ranked BELOW the two sponsors the
+ * operator ranked explicitly on 2026-07-31 — those ranks encode a real
+ * commitment and are asserted in `featured-providers-rank.test.ts`, so they are
+ * not ours to reorder.
+ */
+const AIMLAPI_PROVIDER_IDS: readonly string[] = ["aimlapi"];
+
+/**
  * Explicit sponsor ordering for the dashboard provider grids.
  *
  * A plain Set is NOT enough: `sortProviderEntriesFeaturedFirst` pins featured
@@ -67,6 +79,7 @@ const CHEAPERINFERENCE_PROVIDER_IDS: readonly string[] = ["cheaperinference"];
 const FEATURED_PROVIDER_RANKS: ReadonlyMap<string, number> = new Map([
   ...KIMI_PROVIDER_IDS.map((id) => [id, 1] as const),
   ...CHEAPERINFERENCE_PROVIDER_IDS.map((id) => [id, 2] as const),
+  ...AIMLAPI_PROVIDER_IDS.map((id) => [id, 3] as const),
 ]);
 
 /** Brand accent per sponsor family, keyed by any of that family's provider ids. */
